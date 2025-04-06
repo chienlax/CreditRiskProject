@@ -28,6 +28,16 @@
         + Crucial: In credit scoring, outliers aren't always errors; they can represent high-risk/high-value segments. Investigate them rather than blindly removing/capping initially. 
         + Note features with many outliers (e.g., Home Credit's DAYS_EMPLOYED has a specific large value for unemployed).
 
+DAYS_BIRTH, DAYS_EMPLOYED, DAYS_REGISTRATION, DAYS_ID_PUBLISH
+
+REG_REGION_NOT_LIVE_REGION, REG_REION_NOT_WORK_REGION, 
+REG_CITY_NOT_LIVE_CITY, REG_CITY_NOT_WORK_CITY, 
+LIVE_REGION_NOT_WORK_REGION, LIVE_CITY_NOT_WORK_CITY -> Change to categorical
+
+REGION_RATING_CLIENT, REGION_RATING_CLIENT_W_CITY -> Change to categorical
+
+AMT_REQ_CREDIT_BUREAU_HOUR, AMT_REQ_CREDIT_BUREAU_DAY, AMT_REQ_CREDIT_BUREAU_WEEK, AMT_REQ_CREDIT_BUREAU_QRT, AMT_REQ_CREDIT_BUREAU_YEAR -> Change to categorical
+
 ### 1.3.2 Categorical Features:
 - **Value Counts & Cardinality**: Check unique values and their frequencies for each categorical column.
     + Understand the different categories and their prevalence. 
@@ -55,6 +65,8 @@
     + Are values missing completely at random (MCAR), at random (MAR), or not at random (MNAR)? 
     + This informs imputation strategy. High percentages (>40-50%) might warrant feature removal. 
     + Correlations in missingness can suggest underlying reasons.
+- **Duplicate Rows**: Check for duplicate rows in the dataset. 
+    + If duplicates exist, decide whether to drop them or keep them based on the context of the data.
 - **Outlier Investigation**: Revisit features identified with potential outliers in Phase 3.
     + *Action*: Analyze specific extreme values.
     + Decide on a preliminary handling strategy (investigate further, cap, transform, leave as is for tree models). + Document your reasoning.
